@@ -1,0 +1,71 @@
+# Build results
+bin/
+obj/
+dist/
+publish/
+*.o
+*.a
+*.so
+
+# NuGet
+*.nuget.props
+*.nuget.targets
+.nuget/
+*.nupkg
+*.snupkg
+
+# Visual Studio
+.vs/
+.vscode/
+*.sln.docstates
+*.user
+*.userosscache
+*.sln.iml
+.vscode/
+
+# ReSharper
+_ReSharper*/
+*.DotSettings.user
+
+# Test results
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# Build artifacts
+artifacts/
+packages/
+.packages/
+
+# Local environment
+.env
+.env.local
+.env.*.local
+appsettings.Development.json
+appsettings.Production.json
+appsettings.*.local.json
+
+# IDE
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# npm / yarn
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Certificates
+*.pfx
+*.pem
+
+# Logs
+logs/
+*.log
