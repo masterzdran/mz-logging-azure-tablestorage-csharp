@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFrameworks>net8.0</TargetFrameworks>
+    <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
@@ -16,8 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\MZ.Logging.AzureTableStorage\MZ.Logging.AzureTableStorage.csproj" />
-    <ProjectReference Include="..\..\src\MZ.Logging.Configuration\MZ.Logging.Configuration.csproj" />
+    <ProjectReference Include="..\..\src\MasterZdran.Logging.AzureTableStorage\MasterZdran.Logging.AzureTableStorage.csproj" />
+    <ProjectReference Include="..\..\src\MasterZdran.Logging.Configuration\MasterZdran.Logging.Configuration.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,6 +1,6 @@
 # API Reference
 
-Complete API documentation for MZ.Logging.AzureTableStorage
+Complete API documentation for MasterZdran.Logging.AzureTableStorage
 
 ---
 

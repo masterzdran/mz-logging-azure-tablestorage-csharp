@@ -1,4 +1,4 @@
-# MZ.Logging.AzureTableStorage - C# / .NET Documentation
+# MasterZdran.Logging.AzureTableStorage - C# / .NET Documentation
 
 ## Table of Contents
 
@@ -15,7 +15,7 @@
 
 ## Overview
 
-**MZ.Logging.AzureTableStorage** is a professional-grade, enterprise-ready logging library for .NET that provides structured logging to Azure Table Storage with full support for:
+**MasterZdran.Logging.AzureTableStorage** is a professional-grade, enterprise-ready logging library for .NET that provides structured logging to Azure Table Storage with full support for:
 
 - **Distributed Tracing**: Built-in trace ID support for request correlation across microservices
 - **Clean Code**: Follows SOLID principles, Clean Code architecture, and best practices
@@ -39,14 +39,14 @@
 ### Installation
 
 ```bash
-dotnet add package MZ.Logging.AzureTableStorage
-dotnet add package MZ.Logging.Configuration
+dotnet add package MasterZdran.Logging.AzureTableStorage
+dotnet add package MasterZdran.Logging.Configuration
 ```
 
 ### Basic Usage
 
 ```csharp
-using MZ.Logging.AzureTableStorage;
+using MasterZdran.Logging.AzureTableStorage;
 using Microsoft.Extensions.DependencyInjection;
 
 // Create service collection
@@ -79,7 +79,7 @@ await logger.InformationAsync("Application started", metadata: new Dictionary<st
 
 ```
 src/
-├── MZ.Logging.AzureTableStorage/      # Core logging library
+├── MasterZdran.Logging.AzureTableStorage/      # Core logging library
 │   ├── Contracts/                     # Interfaces and contracts
 │   ├── Models/                        # Data models
 │   ├── Exceptions/                    # Custom exceptions
@@ -87,14 +87,14 @@ src/
 │   ├── Validation/                    # Input validation
 │   ├── Logging/                       # Logger implementations
 │   └── DependencyInjection/          # DI extensions
-└── MZ.Logging.Configuration/          # Configuration providers
+└── MasterZdran.Logging.Configuration/          # Configuration providers
     ├── Models/                        # Configuration models
     ├── Providers/                     # Azure configuration providers
     └── Extensions/                    # Configuration extensions
 
 tests/
-├── MZ.Logging.AzureTableStorage.Tests/
-└── MZ.Logging.Configuration.Tests/
+├── MasterZdran.Logging.AzureTableStorage.Tests/
+└── MasterZdran.Logging.Configuration.Tests/
 
 docs/
 ├── README.md
@@ -402,7 +402,7 @@ services.AddOpenTelemetry()
 ### Example 1: Basic Logging
 
 ```csharp
-using MZ.Logging.AzureTableStorage;
+using MasterZdran.Logging.AzureTableStorage;
 using Microsoft.Extensions.DependencyInjection;
 
 var services = new ServiceCollection();
@@ -524,7 +524,7 @@ The project uses a comprehensive testing stack for quality assurance:
 
 ### Test Structure
 
-#### MZ.Logging.AzureTableStorage.Tests
+#### MasterZdran.Logging.AzureTableStorage.Tests
 
 **Total: 170 tests across both target frameworks**
 
@@ -539,7 +539,7 @@ The project uses a comprehensive testing stack for quality assurance:
   - Data transformation and serialization
   - OpenTelemetry integration scenarios
 
-#### MZ.Logging.Configuration.Tests
+#### MasterZdran.Logging.Configuration.Tests
 
 **Total: 58 tests across both target frameworks**
 
@@ -559,7 +559,7 @@ dotnet test
 dotnet test --logger "console;verbosity=detailed"
 
 # Run specific test project
-dotnet test tests/MZ.Logging.AzureTableStorage.Tests/
+dotnet test tests/MasterZdran.Logging.AzureTableStorage.Tests/
 
 # Run tests for specific framework
 dotnet test -f net8.0
@@ -571,10 +571,10 @@ dotnet test -f net7.0
 All tests pass with 100% success rate on both target frameworks:
 
 ```
-MZ.Logging.AzureTableStorage.Tests (net7.0):  Passed 85, Failed 0
-MZ.Logging.AzureTableStorage.Tests (net8.0):  Passed 85, Failed 0
-MZ.Logging.Configuration.Tests (net7.0):      Passed 29, Failed 0
-MZ.Logging.Configuration.Tests (net8.0):      Passed 29, Failed 0
+MasterZdran.Logging.AzureTableStorage.Tests (net7.0):  Passed 85, Failed 0
+MasterZdran.Logging.AzureTableStorage.Tests (net8.0):  Passed 85, Failed 0
+MasterZdran.Logging.Configuration.Tests (net7.0):      Passed 29, Failed 0
+MasterZdran.Logging.Configuration.Tests (net8.0):      Passed 29, Failed 0
 ```
 
 ### Test Naming Convention

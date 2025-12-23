@@ -1,6 +1,6 @@
 # Usage Guide
 
-Practical guide to using MZ.Logging.AzureTableStorage in various scenarios.
+Practical guide to using MasterZdran.Logging.AzureTableStorage in various scenarios.
 
 ---
 
@@ -33,10 +33,10 @@ Practical guide to using MZ.Logging.AzureTableStorage in various scenarios.
 
 ```bash
 # Core logging library
-dotnet add package MZ.Logging.AzureTableStorage
+dotnet add package MasterZdran.Logging.AzureTableStorage
 
 # Configuration helpers (optional)
-dotnet add package MZ.Logging.Configuration
+dotnet add package MasterZdran.Logging.Configuration
 ```
 
 ---
@@ -46,7 +46,7 @@ dotnet add package MZ.Logging.Configuration
 ### Program.cs Setup
 
 ```csharp
-using MZ.Logging.AzureTableStorage;
+using MasterZdran.Logging.AzureTableStorage;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -218,7 +218,7 @@ app.UseMiddleware<RequestLoggingMiddleware>();
 ```csharp
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using MZ.Logging.AzureTableStorage;
+using MasterZdran.Logging.AzureTableStorage;
 
 class Program
 {

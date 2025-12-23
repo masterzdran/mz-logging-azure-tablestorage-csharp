@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using MZ.Logging.AzureTableStorage;
+using MasterZdran.Logging.AzureTableStorage;
 
 
 // Load configuration
@@ -35,6 +35,27 @@ try
 {
     // Get the AzureTableStorageLogger for async operations
     var logger = serviceProvider.GetRequiredService<AzureTableStorageLogger>();
+
+
+    try
+    {
+        throw new InvalidOperationException("Test exception");
+    }
+    catch (Exception ex)
+    {
+        await logger.ErrorAsync(
+            "An error occurred during processing",
+            traceId: traceId,
+            exception: ex,
+            metadata: new Dictionary<string, object>
+            {
+                { "severity", "high" },
+                { "component", "TestModule" }
+            },
+            cancellationToken: cancellationToken
+        );
+    }
+
 
     // Log initialization message
     Console.WriteLine("Logging sample messages...");
@@ -82,9 +103,17 @@ try
     foreach (var log in logs)
     {
         Console.WriteLine($"[{log.Level}] {log.Timestamp:u} - {log.Message}");
+        if (!string.IsNullOrEmpty(log.Location))
+        {
+            Console.WriteLine($"  Location: {log.Location}");
+        }
         if (log.Metadata != null)
         {
             Console.WriteLine($"  Metadata: {log.Metadata}");
+        }
+        if (log.Exception != null)
+        {
+            Console.WriteLine($"  Exception: {log.Exception.Substring(0, Math.Min(100, log.Exception.Length))}...");
         }
     }
 

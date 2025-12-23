@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- .NET 10.0 support added to all projects
+- Multi-targeting expanded to net10.0;net9.0;net8.0;net7.0
+
 ### Planned
 
 - Azure Blob Storage export functionality
@@ -15,16 +20,48 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Batch logging operations
 - Log retention policies
 
-## [1.0.0] - 2024-12-21
+## [0.1.0] - 2025-12-23
 
 ### Added
 
-- Initial release of MZ.Logging.AzureTableStorage for .NET
+- Initial pre-production release with MasterZdran branding
+- **BREAKING**: Namespace changed from `MZ.Logging.*` to `MasterZdran.Logging.*`
+- **BREAKING**: Package IDs changed to `MasterZdran.Logging.AzureTableStorage` and `MasterZdran.Logging.Configuration`
+- Company name updated from "MZ" to "MasterZdran" across all packages
+- .NET 9.0 support added alongside .NET 8.0 and .NET 7.0
+- Multi-targeting for maximum compatibility (net9.0;net8.0;net7.0)
+- Published to NuGet.org for community testing and feedback
+- Automatic caller location tracking using CallerFilePath, CallerMemberName, CallerLineNumber attributes
+- Location field made optional (nullable) for flexibility
+- Full async/await API design
+- Azure Table Storage integration
+- Microsoft.Extensions.Logging (ILogger, ILogger<T>) support
+- OpenTelemetry integration for distributed tracing
+- Multiple configuration providers (Key Vault, App Configuration, JSON, Environment)
+- OWASP security best practices and input validation
+- 113 comprehensive unit and integration tests
+- Complete documentation with guides and examples
+- NuGet packages:
+  - MasterZdran.Logging.AzureTableStorage (core library)
+  - MasterZdran.Logging.Configuration (configuration providers)
+
+### Notes
+
+- Version 0.1.0 indicates pre-production status for testing and feedback
+- Breaking changes may occur before 1.0.0 stable release
+- Production use is not recommended until 1.0.0
+
+## [1.0.0] - Planned
+
+### Added
+
+- Initial release of MasterZdran.Logging.AzureTableStorage for .NET
 - Core logging functionality with structured logging
 - Azure Table Storage integration
 - Async/await API design
 - Support for .NET 8.0 and .NET 7.0
 - Dependency Injection support (Microsoft.Extensions.DependencyInjection)
+- Full Microsoft.Extensions.Logging (ILogger, ILogger<T>) integration
 - OpenTelemetry integration for distributed tracing
 - Multiple configuration providers:
   - Azure Key Vault
@@ -37,12 +74,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Log retrieval with pagination and filtering
 - Automatic caller location tracking (file, method, line number)
 - Distributed trace ID support
+- NuGet package support:
+  - MasterZdran.Logging.AzureTableStorage (core library)
+  - MasterZdran.Logging.Configuration (configuration providers)
+- Automated build script (build-nuget.ps1)
 - Comprehensive documentation:
   - Quick Start guide
+  - Usage guide
   - Configuration guide
   - Security best practices
   - Architecture overview
-- Comprehensive test coverage
+  - API reference
+  - NuGet package guide
+- Comprehensive test coverage (114 tests, 100% pass rate)
 - Cross-platform support (Windows, Linux, macOS)
 
 ### Features
@@ -108,7 +152,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### From Python Version
 
-This is a complete rewrite in C# of the [MZ.Logging.AzureTableStorage (Python)](https://github.com/masterzdran/mz-logging-azure-tablestorage) project.
+This is a complete rewrite in C# of the [MasterZdran.Logging.AzureTableStorage (Python)](https://github.com/masterzdran/mz-logging-azure-tablestorage) project.
 
 **Key Improvements:**
 

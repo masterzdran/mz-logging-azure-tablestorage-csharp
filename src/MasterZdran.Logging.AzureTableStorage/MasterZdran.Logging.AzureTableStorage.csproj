@@ -1,0 +1,55 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net10.0;net9.0;net8.0;net7.0</TargetFrameworks>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <Deterministic>true</Deterministic>
+    <ContinuousIntegrationBuild Condition="'$(CI)' == 'true'">true</ContinuousIntegrationBuild>
+    <DebugType>embedded</DebugType>
+    
+    <!-- NuGet Package Properties -->
+    <PackageId>MasterZdran.Logging.AzureTableStorage</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>Nuno Cancelo</Authors>
+    <Company>MasterZdran</Company>
+    <Product>MasterZdran.Logging.AzureTableStorage</Product>
+    <Title>Azure Table Storage Logging for .NET</Title>
+    <Description>Production-ready Azure Table Storage logging library for .NET with Microsoft.Extensions.Logging support, structured logging, distributed tracing, async operations, and OpenTelemetry integration. Includes OWASP security best practices, input validation, and comprehensive documentation.</Description>
+    <PackageProjectUrl>https://github.com/masterzdran/mz-logging-azure-tablestorage-csharp</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <RepositoryUrl>https://github.com/masterzdran/mz-logging-azure-tablestorage-csharp</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>logging;azure;tablestorage;structured-logging;distributed-tracing;opentelemetry;microsoft-extensions-logging;ilogger;async;security;owasp</PackageTags>
+    <PackageReleaseNotes>Initial release with full Microsoft.Extensions.Logging support, async operations, distributed tracing, and OWASP security compliance.</PackageReleaseNotes>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>log-file.png</PackageIcon>
+    <Copyright>Copyright (c) 2024 Nuno Cancelo</Copyright>
+    <NeutralLanguage>en-US</NeutralLanguage>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\log-file.png" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.Core" Version="1.40.0" />
+    <PackageReference Include="Azure.Data.Tables" Version="12.8.0" />
+    <PackageReference Include="Azure.Identity" Version="1.12.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
+    <PackageReference Include="System.Diagnostics.DiagnosticSource" Version="8.0.0" />
+    <PackageReference Include="OpenTelemetry" Version="1.7.0" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
+    <PackageReference Include="OpenTelemetry.Api" Version="1.7.0" />
+  </ItemGroup>
+
+</Project>

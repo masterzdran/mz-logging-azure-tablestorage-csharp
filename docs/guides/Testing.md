@@ -22,18 +22,18 @@ Tests are included in the solution. No additional setup required beyond running 
 
 ```
 tests/
-├── MZ.Logging.AzureTableStorage.Tests/
+├── MasterZdran.Logging.AzureTableStorage.Tests/
 │   ├── ValidatorAndQueryTests.cs
 │   ├── IntegrationTests.cs
-│   └── MZ.Logging.AzureTableStorage.Tests.csproj
-└── MZ.Logging.Configuration.Tests/
+│   └── MasterZdran.Logging.AzureTableStorage.Tests.csproj
+└── MasterZdran.Logging.Configuration.Tests/
     ├── ConfigurationTests.cs
-    └── MZ.Logging.Configuration.Tests.csproj
+    └── MasterZdran.Logging.Configuration.Tests.csproj
 ```
 
 ### Test Files & Coverage
 
-#### MZ.Logging.AzureTableStorage.Tests
+#### MasterZdran.Logging.AzureTableStorage.Tests
 
 **ValidatorAndQueryTests.cs** (244 tests)
 
@@ -62,7 +62,7 @@ tests/
   - LogEntry with LogQuery integration
   - Validation and model coordination
 
-#### MZ.Logging.Configuration.Tests
+#### MasterZdran.Logging.Configuration.Tests
 
 **ConfigurationTests.cs** (43 tests)
 
@@ -94,7 +94,7 @@ dotnet test --logger "console;verbosity=detailed" -- RunConfiguration.TestSessio
 
 ```bash
 # Run specific test project
-dotnet test tests/MZ.Logging.AzureTableStorage.Tests/
+dotnet test tests/MasterZdran.Logging.AzureTableStorage.Tests/
 
 # Run tests for specific framework
 dotnet test -f net8.0
@@ -124,11 +124,11 @@ dotnet build -c Release && dotnet test -c Release
 All tests pass with 100% success rate:
 
 ```
-=== MZ.Logging.AzureTableStorage.Tests ===
+=== MasterZdran.Logging.AzureTableStorage.Tests ===
 Net7.0:  Passed 85, Failed 0, Skipped 0, Total 85
 Net8.0:  Passed 85, Failed 0, Skipped 0, Total 85
 
-=== MZ.Logging.Configuration.Tests ===
+=== MasterZdran.Logging.Configuration.Tests ===
 Net7.0:  Passed 29, Failed 0, Skipped 0, Total 29
 Net8.0:  Passed 29, Failed 0, Skipped 0, Total 29
 
@@ -163,7 +163,7 @@ using Xunit;
 using FluentAssertions;
 using Moq;
 
-namespace MZ.Logging.AzureTableStorage.Tests;
+namespace MasterZdran.Logging.AzureTableStorage.Tests;
 
 public class YourFeatureTests
 {

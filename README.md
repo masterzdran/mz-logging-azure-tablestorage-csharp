@@ -1,10 +1,11 @@
-# MZ.Logging.AzureTableStorage
+# MasterZdran.Logging.AzureTableStorage
 
 > **Production-ready Azure Table Storage logging for .NET with Microsoft.Extensions.Logging support**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![.NET](https://img.shields.io/badge/.NET-8.0%20%7C%207.0-blue)](https://dotnet.microsoft.com/)
-[![Tests](https://img.shields.io/badge/tests-114%20passing-brightgreen)](tests/)
+[![.NET](https://img.shields.io/badge/.NET-10.0%20%7C%209.0%20%7C%208.0%20%7C%207.0-blue)](https://dotnet.microsoft.com/)
+[![NuGet](https://img.shields.io/nuget/v/MasterZdran.Logging.AzureTableStorage.svg)](https://www.nuget.org/packages/MasterZdran.Logging.AzureTableStorage/)
+[![Tests](https://img.shields.io/badge/tests-113%20passing-brightgreen)](tests/)
 
 A professional, enterprise-grade logging library that writes structured logs to Azure Table Storage with full support for distributed tracing, async operations, and Microsoft's logging abstractions.
 
@@ -14,8 +15,24 @@ A professional, enterprise-grade logging library that writes structured logs to 
 
 ### Installation
 
+#### From NuGet.org
+
 ```bash
-dotnet add package MZ.Logging.AzureTableStorage
+# Core logging library
+dotnet add package MasterZdran.Logging.AzureTableStorage
+
+# Configuration providers (optional)
+dotnet add package MasterZdran.Logging.Configuration
+```
+
+#### From Local Build
+
+```bash
+# Build packages
+.\build-nuget.ps1
+
+# Install from local directory
+dotnet add package MasterZdran.Logging.AzureTableStorage --source ./nupkgs --version 0.1.0
 ```
 
 ### Basic Usage
@@ -23,7 +40,7 @@ dotnet add package MZ.Logging.AzureTableStorage
 ```csharp
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using MZ.Logging.AzureTableStorage;
+using MasterZdran.Logging.AzureTableStorage;
 
 // Setup with Dependency Injection
 var services = new ServiceCollection();
@@ -51,8 +68,8 @@ logger.LogInformation("Application started");
 - ✅ **Azure Integration** - Key Vault, App Configuration, Managed Identity
 - ✅ **Type Safe** - Nullable reference types, compile-time safety
 - ✅ **Security First** - OWASP best practices, input validation, injection prevention
-- ✅ **Well Tested** - 114 unit & integration tests, 100% pass rate
-- ✅ **Cross-Platform** - .NET 8.0 and .NET 7.0
+- ✅ **Well Tested** - 113 unit & integration tests, 100% pass rate
+- ✅ **Cross-Platform** - .NET 10.0, .NET 9.0, .NET 8.0, and .NET 7.0
 
 ---
 
@@ -93,7 +110,7 @@ public class OrderController : ControllerBase
 ```csharp
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using MZ.Logging.AzureTableStorage;
+using MasterZdran.Logging.AzureTableStorage;
 
 var services = new ServiceCollection();
 services.AddAzureTableStorageLogging(
@@ -141,7 +158,7 @@ var (logs, continuationToken) = await logger.GetLogsAsync(query);
 ### With Azure Key Vault
 
 ```csharp
-using MZ.Logging.Configuration;
+using MasterZdran.Logging.Configuration;
 
 var config = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json")
@@ -278,7 +295,7 @@ See [Testing Guide](docs/guides/Testing.md) for testing best practices.
 
 ## 📦 What's Included
 
-### Core Library (`MZ.Logging.AzureTableStorage`)
+### Core Library (`MasterZdran.Logging.AzureTableStorage`)
 
 - `AzureTableStorageLogger` - Main async logger
 - `AzureTableStorageLoggerProvider` - ILoggerProvider implementation
@@ -289,7 +306,7 @@ See [Testing Guide](docs/guides/Testing.md) for testing best practices.
 - `LogValidator` - Input validation
 - Custom exceptions and DI extensions
 
-### Configuration Library (`MZ.Logging.Configuration`)
+### Configuration Library (`MasterZdran.Logging.Configuration`)
 
 - Azure Key Vault configuration provider
 - Azure App Configuration provider
@@ -433,7 +450,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- Inspired by the Python [MZ.Logging.AzureTableStorage](https://github.com/masterzdran/mz-logging-azure-tablestorage) project
+- Inspired by the Python [MasterZdran.Logging.AzureTableStorage](https://github.com/masterzdran/mz-logging-azure-tablestorage) project
 - Built with best practices from Microsoft's logging guidelines
 - Security guidance from OWASP Top 10
 
@@ -444,7 +461,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Lines of Code**: ~3,500+
 - **Tests**: 114 (100% passing)
 - **Code Coverage**: High (unit + integration tests)
-- **Target Frameworks**: .NET 8.0, .NET 7.0
+- **Target Frameworks**: .NET 10.0, .NET 9.0, .NET 8.0, .NET 7.0
 - **Dependencies**: Minimal (Azure SDK, Microsoft.Extensions)
 - **Documentation**: 8 comprehensive guides
 
@@ -452,7 +469,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🔗 Links
 
-- [NuGet Package](https://www.nuget.org/packages/MZ.Logging.AzureTableStorage)
+- [NuGet Package](https://www.nuget.org/packages/MasterZdran.Logging.AzureTableStorage)
 - [Source Code](https://github.com/masterzdran/mz-logging-azure-tablestorage-csharp)
 - [Issue Tracker](https://github.com/masterzdran/mz-logging-azure-tablestorage-csharp/issues)
 - [Changelog](CHANGELOG.md)
@@ -461,3 +478,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 **Ready to get started?** Check out the [Quick Start Guide](docs/guides/QuickStart.md)!
+
+## Attribuition
+
+<a href="https://www.flaticon.com/free-icons/log-file" title="log file icons">Log file icons created by Muhammad_Usman - Flaticon</a>

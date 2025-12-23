@@ -5,15 +5,15 @@
 ### Using NuGet Package Manager
 
 ```bash
-Install-Package MZ.Logging.AzureTableStorage
-Install-Package MZ.Logging.Configuration
+Install-Package MasterZdran.Logging.AzureTableStorage
+Install-Package MasterZdran.Logging.Configuration
 ```
 
 ### Using .NET CLI
 
 ```bash
-dotnet add package MZ.Logging.AzureTableStorage
-dotnet add package MZ.Logging.Configuration
+dotnet add package MasterZdran.Logging.AzureTableStorage
+dotnet add package MasterZdran.Logging.Configuration
 ```
 
 ## 5-Minute Setup

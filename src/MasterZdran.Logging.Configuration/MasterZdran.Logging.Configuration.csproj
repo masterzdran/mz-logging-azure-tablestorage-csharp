@@ -1,0 +1,58 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net10.0;net9.0;net8.0;net7.0</TargetFrameworks>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <Deterministic>true</Deterministic>
+    <ContinuousIntegrationBuild Condition="'$(CI)' == 'true'">true</ContinuousIntegrationBuild>
+    <DebugType>embedded</DebugType>
+
+    <!-- NuGet Package Properties -->
+    <PackageId>MasterZdran.Logging.Configuration</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>Nuno Cancelo</Authors>
+    <Company>MasterZdran</Company>
+    <Product>MasterZdran.Logging.Configuration</Product>
+    <Title>Configuration Providers for Azure Table Storage Logging</Title>
+    <Description>Configuration providers and helpers for MasterZdran.Logging.AzureTableStorage. Supports multiple configuration sources including appsettings.json, Azure App Configuration, Azure Key Vault, and environment variables. Includes validation and extension methods for easy integration.</Description>
+    <PackageProjectUrl>https://github.com/masterzdran/mz-logging-azure-tablestorage-csharp</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <RepositoryUrl>https://github.com/masterzdran/mz-logging-azure-tablestorage-csharp</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>logging;azure;configuration;app-configuration;key-vault;dependency-injection;appsettings;managed-identity</PackageTags>
+    <PackageReleaseNotes>Initial release with support for Azure Key Vault, Azure App Configuration, and standard .NET configuration sources.</PackageReleaseNotes>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>log-file.png</PackageIcon>
+    <Copyright>Copyright (c) 2024 Nuno Cancelo</Copyright>
+    <NeutralLanguage>en-US</NeutralLanguage>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\log-file.png" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MasterZdran.Logging.AzureTableStorage\MasterZdran.Logging.AzureTableStorage.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.Identity" Version="1.12.0" />
+    <PackageReference Include="Azure.Data.AppConfiguration" Version="1.4.0" />
+    <PackageReference Include="Azure.Security.KeyVault.Secrets" Version="4.5.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.AzureAppConfiguration" Version="6.1.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
+  </ItemGroup>
+
+</Project>

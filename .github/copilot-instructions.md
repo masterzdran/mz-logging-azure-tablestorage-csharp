@@ -1,12 +1,12 @@
 <!-- Use this file to provide workspace-specific custom instructions to Copilot. For more details, visit https://code.visualstudio.com/docs/copilot/copilot-customization#_use-a-githubcopilotinstructionsmd-file -->
 
-# MZ.Logging.AzureTableStorage - C# / .NET
+# MasterZdran.Logging.AzureTableStorage - C# / .NET
 
 Professional Azure Table Storage logging library for .NET with clean code, OWASP security best practices, and OpenTelemetry integration.
 
 ## Project Overview
 
-This is a complete C# rewrite of the Python MZ.Logging.AzureTableStorage project with the following improvements:
+This is a complete C# rewrite of the Python MasterZdran.Logging.AzureTableStorage project with the following improvements:
 - Full .NET 8.0 and .NET 7.0 support
 - Async/await native implementation
 - Dependency Injection support
@@ -27,7 +27,7 @@ This is a complete C# rewrite of the Python MZ.Logging.AzureTableStorage project
 
 ```
 src/
-├── MZ.Logging.AzureTableStorage/
+├── MasterZdran.Logging.AzureTableStorage/
 │   ├── Contracts/          - ILogStorage interface
 │   ├── Models/            - LogEntry, LogQuery, LogLevel
 │   ├── Exceptions/        - Custom exceptions
@@ -35,14 +35,14 @@ src/
 │   ├── Validation/        - ILogValidator, LogValidator
 │   ├── Logging/           - AzureTableStorageLogger
 │   └── DependencyInjection/  - ServiceCollectionExtensions
-└── MZ.Logging.Configuration/
+└── MasterZdran.Logging.Configuration/
     ├── Models/            - AzureTableStorageLoggingConfiguration
     ├── Providers/         - Key Vault & App Configuration providers
     └── Extensions/        - ConfigurationBuilderExtensions
 
 tests/
-├── MZ.Logging.AzureTableStorage.Tests/
-└── MZ.Logging.Configuration.Tests/
+├── MasterZdran.Logging.AzureTableStorage.Tests/
+└── MasterZdran.Logging.Configuration.Tests/
 
 docs/
 ├── guides/                - User guides (QuickStart, Configuration, Security)

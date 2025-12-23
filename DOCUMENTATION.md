@@ -1,6 +1,6 @@
-# MZ.Logging.AzureTableStorage Documentation
+# MasterZdran.Logging.AzureTableStorage Documentation
 
-Complete documentation index for the MZ.Logging.AzureTableStorage .NET library.
+Complete documentation index for the MasterZdran.Logging.AzureTableStorage .NET library.
 
 ---
 
@@ -11,6 +11,7 @@ Complete documentation index for the MZ.Logging.AzureTableStorage .NET library.
 - **[README.md](README.md)** - Project overview, quick start, and key features
 - **[Quick Start Guide](docs/guides/QuickStart.md)** - 5-minute setup guide
 - **[Usage Guide](docs/guides/UsageGuide.md)** - Comprehensive usage scenarios and examples
+- **[NuGet Package Guide](NUGET.md)** - Building, testing, and publishing NuGet packages
 
 ### Configuration
 

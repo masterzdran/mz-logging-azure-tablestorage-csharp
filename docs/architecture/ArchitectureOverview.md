@@ -9,7 +9,7 @@
 └──────────────────────┬──────────────────────────────────────┘
                        │
 ┌──────────────────────▼──────────────────────────────────────┐
-│            MZ.Logging.AzureTableStorage                    │
+│            MasterZdran.Logging.AzureTableStorage                    │
 │  ┌──────────────────────────────────────────────────────┐  │
 │  │      AzureTableStorageLogger (Public API)           │  │
 │  │  - DebugAsync() / InformationAsync() / etc.         │  │
@@ -41,7 +41,7 @@
 └──────────────────────┬──────────────────────────────────────┘
                        │
 ┌──────────────────────▼──────────────────────────────────────┐
-│        MZ.Logging.Configuration (Configuration)             │
+│        MasterZdran.Logging.Configuration (Configuration)             │
 │  ┌──────────────────────────────────────────────────────┐  │
 │  │    Configuration Providers                          │  │
 │  │  - AzureKeyVaultConfigurationProvider               │  │
@@ -160,12 +160,12 @@ public interface ILogStorage
 
 **Two-Part Design:**
 
-**Part 1: Core Configuration (MZ.Logging.AzureTableStorage)**
+**Part 1: Core Configuration (MasterZdran.Logging.AzureTableStorage)**
 
 - `AzureTableStorageLoggingConfiguration` model
 - Validation logic
 
-**Part 2: Providers (MZ.Logging.Configuration)**
+**Part 2: Providers (MasterZdran.Logging.Configuration)**
 
 - `AzureKeyVaultConfigurationProvider` - Azure Key Vault support
 - `AzureAppConfigurationProvider` - Azure App Configuration support

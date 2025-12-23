@@ -1,6 +1,6 @@
 # Security Best Practices
 
-This guide covers OWASP Top 10 and other security considerations for using MZ.Logging.AzureTableStorage.
+This guide covers OWASP Top 10 and other security considerations for using MasterZdran.Logging.AzureTableStorage.
 
 ## 1. Secure Secret Management (CWE-798)
 

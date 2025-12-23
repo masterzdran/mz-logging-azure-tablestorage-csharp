@@ -1,4 +1,4 @@
-# Contributing to MZ.Logging.AzureTableStorage
+# Contributing to MasterZdran.Logging.AzureTableStorage
 
 Thank you for your interest in contributing! This document provides guidelines and instructions for contributing.
 
@@ -10,7 +10,7 @@ This project adheres to the Contributor Covenant Code of Conduct. By participati
 
 ### Prerequisites
 
-- .NET 8.0 SDK or later
+- .NET 10.0 SDK or later
 - Visual Studio Code or Visual Studio 2022
 - Git
 
