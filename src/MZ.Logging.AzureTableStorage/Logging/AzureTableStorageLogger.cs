@@ -1,48 +1,6 @@
 using System.Text.Json;
 using Microsoft.Extensions.Logging;
 
-namespace MZ.Logging.AzureTableStorage.Logging;
-
-/// <summary>
-/// Provides <see cref="ILogger"/> instances that log to Azure Table Storage.
-/// </summary>
-public class AzureTableStorageLoggerProvider : ILoggerProvider
-{
-    private readonly AzureTableStorage _storage;
-    private readonly string _loggerName;
-    private readonly string _defaultTraceId;
-
-    /// <summary>
-    /// Initializes a new instance of <see cref="AzureTableStorageLoggerProvider"/>.
-    /// </summary>
-    /// <param name="storage">The Azure Table Storage instance.</param>
-    /// <param name="loggerName">The default logger name.</param>
-    /// <param name="defaultTraceId">The default trace ID.</param>
-    public AzureTableStorageLoggerProvider(AzureTableStorage storage, string loggerName, string defaultTraceId)
-    {
-        _storage = storage ?? throw new ArgumentNullException(nameof(storage));
-        _loggerName = loggerName ?? throw new ArgumentNullException(nameof(loggerName));
-        _defaultTraceId = defaultTraceId ?? throw new ArgumentNullException(nameof(defaultTraceId));
-    }
-
-    /// <inheritdoc />
-    public ILogger CreateLogger(string categoryName)
-    {
-        if (string.IsNullOrWhiteSpace(categoryName))
-        {
-            throw new ArgumentException("Category name cannot be null or empty.", nameof(categoryName));
-        }
-
-        return new AzureTableStorageLoggerWrapper(_storage, categoryName, _defaultTraceId);
-    }
-
-    /// <inheritdoc />
-    public void Dispose()
-    {
-        // No resources to dispose in this implementation
-    }
-}
-
 namespace MZ.Logging.AzureTableStorage;
 
 /// <summary>
@@ -232,7 +190,7 @@ public class AzureTableStorageLogger
     /// <exception cref="ArgumentNullException">
     /// Thrown when query is null.
     /// </exception>
-    public async Task<(IList<LogEntry>, string?)> GetLogsAsync(
+    public async Task<(IReadOnlyList<LogEntry>, string?)> GetLogsAsync(
         LogQuery query,
         CancellationToken cancellationToken = default)
     {
@@ -258,21 +216,28 @@ public class AzureTableStorageLogger
         // OWASP: Validate inputs to prevent injection attacks
         ValidateMessage(message);
 
+        var timestamp = DateTimeOffset.UtcNow;
+        var partitionKey = _loggerName;
+        var rowKey = $"{timestamp:yyyyMMddHHmmssffffff}_{Guid.NewGuid():N}";
+
         var logEntry = new LogEntry
         {
+            PartitionKey = partitionKey,
+            RowKey = rowKey,
             LoggerName = _loggerName,
             Level = level,
             Message = message,
             TraceId = traceId ?? _defaultTraceId,
             Exception = exception?.ToString(),
             Metadata = SerializeMetadata(metadata),
-            Timestamp = DateTimeOffset.UtcNow
+            Timestamp = timestamp.ToString("o"),
+            Location = string.Empty
         };
 
         // OWASP: Validate log entry before storing
         _validator.Validate(logEntry);
 
-        await _storage.StoreLogAsync(logEntry, cancellationToken);
+        await _storage.StoreLogAsync(partitionKey, rowKey, logEntry, cancellationToken);
     }
 
     private static void ValidateInputs(

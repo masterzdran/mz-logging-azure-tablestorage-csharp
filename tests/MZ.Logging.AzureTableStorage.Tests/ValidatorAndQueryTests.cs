@@ -1,5 +1,7 @@
 using Xunit;
 using FluentAssertions;
+using Microsoft.Extensions.Logging;
+using MZ.Logging.AzureTableStorage;
 
 namespace MZ.Logging.AzureTableStorage.Tests;
 
@@ -301,13 +303,13 @@ public class LogValidatorImplementationTests
     public void Validate_WithDifferentLogLevels_AllValid()
     {
         // Arrange
-        var logLevels = new[] 
-        { 
-            LogLevel.Debug, 
-            LogLevel.Information, 
-            LogLevel.Warning, 
-            LogLevel.Error, 
-            LogLevel.Critical 
+        var logLevels = new[]
+        {
+            LogLevel.Debug,
+            LogLevel.Information,
+            LogLevel.Warning,
+            LogLevel.Error,
+            LogLevel.Critical
         };
 
         // Act & Assert
@@ -440,8 +442,8 @@ public class LogQueryModelTests
     public void LogQuery_Validate_WithValidFilters_Succeeds()
     {
         // Arrange
-        var query = new LogQuery 
-        { 
+        var query = new LogQuery
+        {
             PageSize = 10,
             Filters = new Dictionary<string, object>
             {
@@ -460,8 +462,8 @@ public class LogQueryModelTests
     public void LogQuery_Validate_WithMultipleFilters_Succeeds()
     {
         // Arrange
-        var query = new LogQuery 
-        { 
+        var query = new LogQuery
+        {
             PageSize = 10,
             Filters = new Dictionary<string, object>
             {
@@ -482,8 +484,8 @@ public class LogQueryModelTests
     public void LogQuery_Validate_WithInvalidOrderBy_FailsValidation()
     {
         // Arrange
-        var query = new LogQuery 
-        { 
+        var query = new LogQuery
+        {
             PageSize = 10,
             OrderBy = "InvalidField"
         };
@@ -500,8 +502,8 @@ public class LogQueryModelTests
     public void LogQuery_WithEmptyFilters_Succeeds()
     {
         // Arrange
-        var query = new LogQuery 
-        { 
+        var query = new LogQuery
+        {
             PageSize = 10,
             Filters = new Dictionary<string, object>()
         };
@@ -517,8 +519,8 @@ public class LogQueryModelTests
     public void LogQuery_OrderByDescending_Succeeds()
     {
         // Arrange
-        var query = new LogQuery 
-        { 
+        var query = new LogQuery
+        {
             PageSize = 10,
             OrderBy = "Timestamp",
             Ascending = true
@@ -559,8 +561,8 @@ public class LogQueryModelTests
     public void LogQuery_WithValidOrderByFields_Succeeds(string orderByField)
     {
         // Arrange
-        var query = new LogQuery 
-        { 
+        var query = new LogQuery
+        {
             PageSize = 10,
             OrderBy = orderByField
         };

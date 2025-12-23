@@ -29,12 +29,20 @@ public static class ServiceCollectionExtensions
         if (string.IsNullOrWhiteSpace(tableName)) throw new ArgumentException("Table name cannot be null or empty.", nameof(tableName));
         if (string.IsNullOrWhiteSpace(loggerName)) throw new ArgumentException("Logger name cannot be null or empty.", nameof(loggerName));
 
-        var storage = new AzureTableStorage(connectionString, tableName);
-        var provider = new AzureTableStorageLoggerProvider(storage, loggerName, defaultTraceId);
+        // Register storage implementation
+        services.AddSingleton<ILogStorage>(sp => new Storage.AzureTableStorage(connectionString, tableName));
 
-        services.AddSingleton(storage);
-        services.AddSingleton(provider);
-        services.AddLogging(builder => builder.AddProvider(provider));
+        // Register logger provider
+        services.AddSingleton<Logging.AzureTableStorageLoggerProvider>(sp =>
+            new Logging.AzureTableStorageLoggerProvider(sp.GetRequiredService<ILogStorage>(), loggerName, defaultTraceId));
+
+        // Register main logger
+        services.AddSingleton(sp =>
+            new AzureTableStorageLogger(sp.GetRequiredService<ILogStorage>(), loggerName, defaultTraceId));
+
+        // Add to logging framework
+        services.AddLogging(builder =>
+            builder.AddProvider(builder.Services.BuildServiceProvider().GetRequiredService<Logging.AzureTableStorageLoggerProvider>()));
 
         return services;
     }

@@ -1,4 +1,5 @@
 using MZ.Logging.AzureTableStorage;
+using Microsoft.Extensions.Logging;
 using Xunit;
 using FluentAssertions;
 

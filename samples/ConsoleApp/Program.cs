@@ -3,7 +3,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using MZ.Logging.AzureTableStorage;
-using MZ.Logging.AzureTableStorage.Logging.MZ.Logging.AzureTableStorage;
 
 
 // Load configuration

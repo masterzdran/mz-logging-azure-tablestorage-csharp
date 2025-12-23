@@ -54,6 +54,11 @@ public class LogEntry
     public string? Metadata { get; set; }
 
     /// <summary>
+    /// Gets or sets the exception information if any.
+    /// </summary>
+    public string? Exception { get; set; }
+
+    /// <summary>
     /// Validates the log entry.
     /// </summary>
     /// <returns>Validation result with errors if any.</returns>

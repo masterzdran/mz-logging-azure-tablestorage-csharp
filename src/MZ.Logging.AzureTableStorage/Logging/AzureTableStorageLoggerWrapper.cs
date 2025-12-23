@@ -1,7 +1,5 @@
 // filepath: src/MZ.Logging.AzureTableStorage/Logging/AzureTableStorageLoggerWrapper.cs
 using Microsoft.Extensions.Logging;
-using MZ.Logging.AzureTableStorage.Logging.MZ.Logging.AzureTableStorage;
-
 
 namespace MZ.Logging.AzureTableStorage.Logging;
 

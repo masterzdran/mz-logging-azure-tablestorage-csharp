@@ -1,6 +1,4 @@
 using Microsoft.Extensions.Logging;
-using MZ.Logging.AzureTableStorage.Contracts;
-using System;
 
 namespace MZ.Logging.AzureTableStorage.Logging;
 

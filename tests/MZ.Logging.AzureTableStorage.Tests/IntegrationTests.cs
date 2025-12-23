@@ -1,5 +1,6 @@
 using Xunit;
 using FluentAssertions;
+using Microsoft.Extensions.Logging;
 
 namespace MZ.Logging.AzureTableStorage.Tests;
 
@@ -35,10 +36,10 @@ public class IntegrationTests
     public void LogQuery_CanBeValidated()
     {
         // Arrange
-        var query = new LogQuery 
-        { 
-            PageSize = 25, 
-            OrderBy = "LogLevel" 
+        var query = new LogQuery
+        {
+            PageSize = 25,
+            OrderBy = "LogLevel"
         };
 
         // Act
@@ -147,8 +148,8 @@ public class IntegrationTests
     public void LogQuery_WithFilters_CanBeCreated()
     {
         // Arrange & Act
-        var query = new LogQuery 
-        { 
+        var query = new LogQuery
+        {
             PageSize = 50,
             Filters = new Dictionary<string, object>
             {
@@ -177,25 +178,26 @@ public class IntegrationTests
     [Fact]
     public void LogLevel_Values_AreInCorrectOrder()
     {
-        // Assert
-        ((int)LogLevel.Debug).Should().Be(0);
-        ((int)LogLevel.Information).Should().Be(1);
-        ((int)LogLevel.Warning).Should().Be(2);
-        ((int)LogLevel.Error).Should().Be(3);
-        ((int)LogLevel.Critical).Should().Be(4);
+        // Assert - Microsoft.Extensions.Logging.LogLevel enum values
+        // Trace=0, Debug=1, Information=2, Warning=3, Error=4, Critical=5, None=6
+        ((int)LogLevel.Debug).Should().Be(1);
+        ((int)LogLevel.Information).Should().Be(2);
+        ((int)LogLevel.Warning).Should().Be(3);
+        ((int)LogLevel.Error).Should().Be(4);
+        ((int)LogLevel.Critical).Should().Be(5);
     }
 
     [Fact]
     public void ValidationResult_WithErrors_StoresErrorMessages()
     {
         // Arrange
-        var result = new ValidationResult 
-        { 
+        var result = new ValidationResult
+        {
             IsValid = false,
-            Errors = new List<string> 
-            { 
-                "Error 1", 
-                "Error 2" 
+            Errors = new List<string>
+            {
+                "Error 1",
+                "Error 2"
             }
         };
 
@@ -210,8 +212,8 @@ public class IntegrationTests
     public void ValidationResult_WithoutErrors_IsValid()
     {
         // Arrange
-        var result = new ValidationResult 
-        { 
+        var result = new ValidationResult
+        {
             IsValid = true,
             Errors = new List<string>()
         };

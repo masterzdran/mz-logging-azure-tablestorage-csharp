@@ -19,9 +19,9 @@ public class AzureTableStorage : ILogStorage
         public const string AzuriteConnectionString = "UseDevelopmentStorage=true";
         public const string AzuriteUri = "http://127.0.0.1:10002/devstoreaccount1";
         public const string AzuriteAccountName = "devstoreaccount1";
-        public const string AzuriteAccountKey = 
+        public const string AzuriteAccountKey =
             "Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==";
-        public const string AzuriteFullConnectionString = 
+        public const string AzuriteFullConnectionString =
             "DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=" +
             "Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;" +
             "TableEndpoint=http://127.0.0.1:10002/devstoreaccount1";
@@ -142,7 +142,7 @@ public class AzureTableStorage : ILogStorage
             { EntityPropertyNames.TraceId, logEntry.TraceId ?? string.Empty },
             { EntityPropertyNames.LoggerName, logEntry.LoggerName },
             { EntityPropertyNames.Location, logEntry.Location ?? string.Empty },
-            //{ EntityPropertyNames.Exception, logEntry.Exception ?? string.Empty },
+            { EntityPropertyNames.Exception, logEntry.Exception ?? string.Empty },
             { EntityPropertyNames.Metadata, logEntry.Metadata ?? string.Empty }
         };
 
@@ -180,7 +180,7 @@ public class AzureTableStorage : ILogStorage
     /// <exception cref="StorageException">
     /// Thrown when retrieval fails.
     /// </exception>
-    public async Task<(IReadOnlyList<LogEntry> Logs, string? ContinuationToken)> 
+    public async Task<(IReadOnlyList<LogEntry> Logs, string? ContinuationToken)>
         GetLogsAsync(
             LogQuery query,
             CancellationToken cancellationToken = default)
@@ -273,7 +273,7 @@ public class AzureTableStorage : ILogStorage
 
             return MapEntityToLogEntry(entity.Value);
         }
-        catch (Azure.RequestFailedException ex) 
+        catch (Azure.RequestFailedException ex)
             when (ex.Status == Constants.HttpNotFoundStatusCode)
         {
             return null;
@@ -440,7 +440,7 @@ public class AzureTableStorage : ILogStorage
             long longValue => $"{key} eq {longValue}L",
             double doubleValue => $"{key} eq {doubleValue}d",
             bool boolValue => $"{key} eq {boolValue.ToString().ToLowerInvariant()}",
-            DateTimeOffset dateValue => 
+            DateTimeOffset dateValue =>
                 $"{key} ge datetime'{dateValue:O}' and {key} le " +
                 $"datetime'{dateValue.AddDays(1):O}'",
             _ => throw new ArgumentException(
@@ -492,7 +492,7 @@ public class AzureTableStorage : ILogStorage
             Message = GetStringProperty(entity, EntityPropertyNames.Message),
             TraceId = GetStringProperty(entity, EntityPropertyNames.TraceId),
             Location = GetStringProperty(entity, EntityPropertyNames.Location),
-            // Exception = GetStringProperty(entity, EntityPropertyNames.Exception),
+            Exception = GetStringProperty(entity, EntityPropertyNames.Exception),
             Metadata = GetStringProperty(entity, EntityPropertyNames.Metadata),
             Timestamp = DateTimeOffset.UtcNow.ToUniversalTime().ToString("o")
         };
